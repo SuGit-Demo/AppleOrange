@@ -35,6 +35,11 @@ def prediction(filename):
     my_image = plt.imread(os.path.join('uploads', filename))
     #Step 2
     my_image_re = resize(my_image, (32,32,3))
+    ########
+    img = image.img_to_array(my_image_re)
+    img = np.expand_dims(img, axis=0)
+    img = img/255
+    ########
     
     #Step 3
     #with graph.as_default():
@@ -44,15 +49,17 @@ def prediction(filename):
     probabilities = model.predict(np.array( [my_image_re,] ))[0,:]
     print(probabilities)
     ################
-    img_class = model.predict_classes(my_image_re) #returns ndim np_array
+    img_class = model.predict_classes(img) #returns ndim np_array
     img_class_index = img_class.item() #extracting value(s)
     classname = class_names[img_class_index]
 
-    img_prob = model.predict_proba(my_image_re) #returns numpy array of class probabilities
+    img_prob = model.predict_proba(img) #returns numpy array of class probabilities
     prediction_prob = img_prob.max()
 
     pred_dict = {"Class":classname, "Probability":prediction_prob}
     print(pred_dict)
+    ################
+    
     #Step 4
     number_to_class = ['apple', 'orange']
     index = np.argsort(probabilities)
