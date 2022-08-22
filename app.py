@@ -16,7 +16,7 @@ print("Loading model")
 #sess = tf.compat.v1.Session()
 #set_session(sess)
 global model 
-model = load_model('my_cifar10_model.h5') 
+model = load_model('AppleOrangeRGBWorking.h5') 
 #global graph
 #graph = tf.compat.v1.get_default_graph()
 
