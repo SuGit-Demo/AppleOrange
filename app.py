@@ -41,7 +41,7 @@ def prediction(filename):
       #set_session(sess)
       #Add
     model.run_eagerly=True  
-    #probabilities = model.predict(np.array( [my_image_re,] ))[0,:]
+    probabilities = model.predict(np.array( [my_image_re,] ))[0,:]
     print(probabilities)
     ################
     img_class = model.predict_classes(my_image_re) #returns ndim np_array
