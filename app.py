@@ -56,6 +56,7 @@ def prediction(filename):
     predict_x=model.predict(img) 
     img_class=np.argmax(predict_x,axis=1)
     img_class_index = img_class.item() #extracting value(s)
+    class_names = ['apple', 'orange']
     classname = class_names[img_class_index]
 
     img_prob = model.predict_proba(img) #returns numpy array of class probabilities
