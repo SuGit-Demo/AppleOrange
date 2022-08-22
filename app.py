@@ -52,7 +52,9 @@ def prediction(filename):
     probabilities = model.predict(np.array( [my_image_re,] ))[0,:]
     print(probabilities)
     ################
-    img_class = model.predict_classes(img) #returns ndim np_array
+    #img_class = model.predict_classes(img) #returns ndim np_array
+    predict_x=model.predict(img) 
+    img_class=np.argmax(predict_x,axis=1)
     img_class_index = img_class.item() #extracting value(s)
     classname = class_names[img_class_index]
 
