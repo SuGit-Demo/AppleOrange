@@ -36,7 +36,7 @@ def prediction(filename):
     #Step 1
     my_image = plt.imread(os.path.join('uploads', filename))
     #Step 2
-    my_image_re = resize(my_image, (32,32,3))
+    my_image_re = resize(my_image, (64,64,3))
     ########
     new_img = keras.utils.load_img(os.path.join('uploads', filename), target_size=(32, 32))
     img = keras.utils.img_to_array(new_img)
