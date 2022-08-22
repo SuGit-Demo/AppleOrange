@@ -4,6 +4,7 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
+import keras
 from keras.models import load_model 
 from keras.preprocessing import image ###Added
 from keras.backend import set_session
