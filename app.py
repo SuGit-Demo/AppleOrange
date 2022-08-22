@@ -5,6 +5,7 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
 from keras.models import load_model 
+from keras.preprocessing import image ###Added
 from keras.backend import set_session
 from skimage.transform import resize 
 import matplotlib.pyplot as plt 
