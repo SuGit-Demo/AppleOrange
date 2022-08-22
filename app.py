@@ -59,11 +59,12 @@ def prediction(filename):
     class_names = ['apple', 'orange']
     classname = class_names[img_class_index]
 
-    img_prob = model.predict_proba(img) #returns numpy array of class probabilities
-    prediction_prob = img_prob.max()
+    #img_prob = model.predict_proba(img) #returns numpy array of class probabilities
+    #prediction_prob = img_prob.max()
 
-    pred_dict = {"Class":classname, "Probability":prediction_prob}
-    print(pred_dict)
+    #pred_dict = {"Class":classname, "Probability":prediction_prob}
+    #print(pred_dict)
+    print(classname)
     ################
     
     #Step 4
