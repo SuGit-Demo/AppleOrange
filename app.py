@@ -37,7 +37,8 @@ def prediction(filename):
     #Step 2
     my_image_re = resize(my_image, (32,32,3))
     ########
-    img = image.img_to_array(my_image_re)
+    new_img = image.load_img(my_image, target_size=(32, 32))
+    img = image.img_to_array(new_img)
     img = np.expand_dims(img, axis=0)
     img = img/255
     ########
