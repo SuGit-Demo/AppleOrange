@@ -41,8 +41,18 @@ def prediction(filename):
       #set_session(sess)
       #Add
     model.run_eagerly=True  
-    probabilities = model.predict(np.array( [my_image_re,] ))[0,:]
+    #probabilities = model.predict(np.array( [my_image_re,] ))[0,:]
     print(probabilities)
+    ################
+    img_class = model.predict_classes(my_image_re) #returns ndim np_array
+    img_class_index = img_class.item() #extracting value(s)
+    classname = class_names[img_class_index]
+
+    img_prob = model.predict_proba(my_image_re) #returns numpy array of class probabilities
+    prediction_prob = img_prob.max()
+
+    pred_dict = {"Class":classname, "Probability":prediction_prob}
+    print(pred_dict)
     #Step 4
     number_to_class = ['apple', 'orange']
     index = np.argsort(probabilities)
@@ -52,6 +62,7 @@ def prediction(filename):
       "prob1":probabilities[index[1]],
       "prob2":probabilities[index[0]],      
      }
+    
     #Step 5
     return render_template('predict.html', predictions=predictions)
 
