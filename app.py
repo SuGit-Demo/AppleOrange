@@ -38,7 +38,7 @@ def prediction(filename):
     #Step 2
     my_image_re = resize(my_image, (64,64,3))
     ########
-    new_img = keras.utils.load_img(os.path.join('uploads', filename), target_size=(32, 32))
+    new_img = keras.utils.load_img(os.path.join('uploads', filename), target_size=(64, 64))
     img = keras.utils.img_to_array(new_img)
     img = np.expand_dims(img, axis=0)
     img = img/255
