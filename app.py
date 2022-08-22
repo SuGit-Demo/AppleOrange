@@ -44,16 +44,13 @@ def prediction(filename):
     probabilities = model.predict(np.array( [my_image_re,] ))[0,:]
     print(probabilities)
     #Step 4
-    number_to_class = ['airplane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 
-'truck']
+    number_to_class = ['apple', 'orange']
     index = np.argsort(probabilities)
     predictions = {
-      "class1":number_to_class[index[9]],
-      "class2":number_to_class[index[8]],
-      "class3":number_to_class[index[7]],
-      "prob1":probabilities[index[9]],
-      "prob2":probabilities[index[8]],
-      "prob3":probabilities[index[7]],
+      "class1":number_to_class[index[1]],
+      "class2":number_to_class[index[2]],      
+      "prob1":probabilities[index[1]],
+      "prob2":probabilities[index[2]],      
      }
     #Step 5
     return render_template('predict.html', predictions=predictions)
